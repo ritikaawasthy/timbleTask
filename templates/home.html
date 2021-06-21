@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<!-- Mirrored from preview.colorlib.com/theme/appco/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Mar 2021 16:33:04 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Home</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
+
+
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+</head>
+<body >
+<header>
+
+<div class="header-area ">
+<div class="main-header header-sticky">
+<div class="container">
+<div class="row align-items-center">
+
+<div class="col-xl-2 col-lg-2 col-md-2">
+<div class="logo">
+<a href="{% url 'home' %}"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+</div>
+</div>
+<div class="col-xl-10 col-lg-10 col-md-10">
+
+ <div class="main-menu f-right d-none d-lg-block">
+
+<nav>
+<ul id="navigation">
+  {% if user.is_authenticated == False %}
+<li class="active"><a href="{% url 'home' %}"> Home</a></li>
+<li><a href="{% url 'loginView' %}">Login</a></li>
+<li><a href="{% url 'signUpView' %}">SignUp</a></li>
+{% else %}
+<li><a href="{% url 'logout' %}">Logout</a></li>
+{% endif %}
+</ul>
+</nav>
+</div>
+</div>
+
+<div class="col-12">
+<div class="mobile_menu d-block d-lg-none"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</header>
+<main>
+
+<div class="slider-area ">
+<div class="slider-active pink">
+<div class="single-slider slider-height align-items-center">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-12 col-md-12 ">
+<div class="hero__caption ">
+{% if user.is_authenticated == True %}
+
+<span data-animation="fadeInUp" data-delay=".4s"></span>
+<h1 style="margin-top:0;" data-animation="fadeInUp" data-delay=".6s">Welcome! {{user}} </h1>
+<p data-animation="fadeInUp" data-delay=".8s">Select the state and subject to see the average marks</p>
+</div>
+{% else %}
+<span data-animation="fadeInUp" data-delay=".4s"></span>
+<h1 style="margin-top:0;" data-animation="fadeInUp" data-delay=".6s">Welcome! </h1>
+<p data-animation="fadeInUp" data-delay=".8s">Please register or login if you're already a user</p>
+<div class="slider-btns">
+<a data-animation="fadeInLeft" data-delay="1.0s" href="{% url 'loginView' %}" class="btn radius-btn">Login</a>
+<a data-animation="fadeInRight" data-delay="1.0s" href="{% url 'signUpView' %}" class="btn radius-btn">Sign Up</a>
+</div>
+{% endif %}
+</div>
+<div class="col-lg-12 col-md-12">
+<div class="hero__img d-none d-lg-block f-left" data-animation="fadeInRight" data-delay="1s">
+<img src="{% static 'assets/img/hero/dot-bg.png' %}" alt="">
+
+{% if user.is_authenticated == True %}
+<form action=" " method="post" class="form-contact">
+  {% csrf_token %}
+  <div class="row">
+  <div class="single-element-widget" style="padding-left:4rem; padding-right:4rem;">
+  <label for="id_state"><h3>State:</h3></label>
+  <select name="state" class="default-select" id="default-select" required=""  onfocus='this.size=5;' onblur='this.size=1;'  multiple="">
+  <option value="29">Andaman and Nicobar Islands</option>
+  <option value="1">Andhra Pradesh</option>
+  <option value="2">Arunachal Pradesh</option>
+  <option value="3">Assam</option>
+  <option value="4">Bihar</option>
+  <option value="30">Chandigarh</option>
+  <option value="5">Chhattisgarh</option>
+  <option value="31">Dadra &amp; Nagar Haveli and Daman &amp; Diu</option>
+  <option value="32">Delhi</option>
+  <option value="6">Goa</option>
+  <option value="7">Gujarat</option>
+  <option value="8">Haryana</option>
+  <option value="9">Himachal Pradesh</option>
+  <option value="33">Jammu and Kashmir</option>
+  <option value="10">Jharkhand</option>
+  <option value="11">Karnataka</option>
+  <option value="12">Kerala</option>
+  <option value="36">Ladakh</option>
+  <option value="34">Lakshadweep</option>
+  <option value="13">Madhya Pradesh</option>
+  <option value="14">Maharashtra</option>
+  <option value="15">Manipur</option>
+  <option value="16">Meghalaya</option>
+  <option value="17">Mizoram</option>
+  <option value="18">Nagaland</option>
+  <option value="19">Odisha</option>
+  <option value="35">Puducherry</option>
+  <option value="20">Punjab</option>
+  <option value="21">Rajasthan</option>
+  <option value="22">Sikkim</option>
+  <option value="23">Tamil Nadu</option>
+  <option value="24">Telangana</option>
+  <option value="25">Tripura</option>
+  <option value="26">Uttar Pradesh</option>
+  <option value="27">Uttarakhand</option>
+  <option value="28">West Bengal</option>
+
+  </select>
+  </div>
+  <div class="single-element-widget" style="padding-left:7rem; padding-right:4rem;">
+    <label for="subject"><h3>Subject:</h3></label>
+    <select name="subject" class="default-select" id="default-select" required="" multiple="">
+      {% for subject in subjectList %}
+      <option value={{subject}}>{{subject}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  </div>
+  <br><br><br><br>
+  <input type="submit" class="btn radius-btn">
+</form>
+<br><br><br>
+{% if avgMarks %}
+  Average Marks:{{avgMarks}}
+{% else %}
+{% endif %}
+
+{% else %}
+{% endif %}
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<footer>
+<div class="say-something-aera pt-90 pb-90 fix">
+<div class="container">
+<div class="row justify-content-between align-items-center">
+<div class="offset-xl-1 offset-lg-1 col-xl-5 col-lg-5">
+<div class="say-something-cap">
+<h2>Add new students record</h2>
+<p>This is only accessile by Admin</p>
+</div>
+</div>
+<div class="col-xl-2 col-lg-3">
+<div class="say-btn">
+<a href="{% url 'addStudent' %}" class="btn radius-btn">Add students</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="say-shape">
+<img src="{% static 'assets/img/shape/say-shape-left.png' %}" alt="" class="say-shape1 rotateme d-none d-xl-block">
+<img src="{% static 'assets/img/shape/say-shape-right.png' %}" alt="" class="say-shape2 d-none d-lg-block">
+</div>
+</div>
+</footer>
+</main>
+
+
+<script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+
+<script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
+
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/slick.min.js' %}"></script>
+
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<script src="{% static 'assets/js/animated.headline.js' %}"></script>
+
+<script src="{% static 'assets/js/jquery.scrollUp.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.js' %}"></script>
+
+<script src="{% static 'assets/js/contact.js' %}"></script>
+<script src="{% static 'assets/js/jquery.form.js' %}"></script>
+<script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'assets/js/mail-script.js' %}"></script>
+<script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/appco/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Mar 2021 16:33:07 GMT -->
+</html>
