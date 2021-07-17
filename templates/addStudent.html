@@ -70,13 +70,13 @@
 
 <div class="slider-area ">
 <div class="slider-active pink">
-<div class="single-slider slider-height align-items-center">
+<div class="single-slider slider-height align-items-center" style="margin-bottom: 1000px;">
 <div class="container">
   <div class="section-top-border">
 <div class="row align-items-center">
 <div class="col-lg-8 col-md-8 ">
 
-  <form action=" " method="post">
+  <form action="{% url 'addStudent' %} " method="post">
     {% csrf_token %}
     <div class="mt-10">
   <label for="name">Name</label>
@@ -91,7 +91,7 @@
   <div class="mt-20">
   <label for="id_state">State:</label>
   <br>
-  <select  class="default-select" name="state" required="" id="id_state" multiple="">
+  <select  class="default-select" name="state" id="id_state" >
   <option value="29">Andaman and Nicobar Islands</option>
   <option value="1">Andhra Pradesh</option>
   <option value="2">Arunachal Pradesh</option>
@@ -147,7 +147,6 @@
 </div>
   </form>
   {{msg}}
-
 
 </div>
 </div>

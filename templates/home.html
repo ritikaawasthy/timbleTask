@@ -18,12 +18,14 @@
 <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/scrollBar.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/scrollBar.css' %}">
 </head>
 <body >
 <header>
@@ -39,9 +41,7 @@
 </div>
 </div>
 <div class="col-xl-10 col-lg-10 col-md-10">
-
  <div class="main-menu f-right d-none d-lg-block">
-
 <nav>
 <ul id="navigation">
   {% if user.is_authenticated == False %}
@@ -95,12 +95,13 @@
 <img src="{% static 'assets/img/hero/dot-bg.png' %}" alt="">
 
 {% if user.is_authenticated == True %}
+<!--
 <form action=" " method="post" class="form-contact">
   {% csrf_token %}
   <div class="row">
-  <div class="single-element-widget" style="padding-left:4rem; padding-right:4rem;">
+  <div class="" style="padding-left:4rem; padding-right:4rem;">
   <label for="id_state"><h3>State:</h3></label>
-  <select name="state" class="default-select" id="default-select" required=""  onfocus='this.size=5;' onblur='this.size=1;'  multiple="">
+  <select name="state" class="selectpicker" data-live-search="true"  >
   <option value="29">Andaman and Nicobar Islands</option>
   <option value="1">Andhra Pradesh</option>
   <option value="2">Arunachal Pradesh</option>
@@ -142,7 +143,7 @@
   </div>
   <div class="single-element-widget" style="padding-left:7rem; padding-right:4rem;">
     <label for="subject"><h3>Subject:</h3></label>
-    <select name="subject" class="default-select" id="default-select" required="" multiple="">
+    <select name="subject" class="custom-select">
       {% for subject in subjectList %}
       <option value={{subject}}>{{subject}}</option>
       {% endfor %}
@@ -152,14 +153,143 @@
   <br><br><br><br>
   <input type="submit" class="btn radius-btn">
 </form>
+-->
+<form action=" " method="post" class="form-contact">
+  {% csrf_token %}
+  <div class="row">
+    <label for="id_state"><h3>State:</h3></label>
+    <label >
+    <input value="29" type="checkbox" name="state" >Andaman and Nicobar Islands>
+    </label>
+    <label >
+    <input value="1"  type="checkbox" name="state">Andhra Pradesh
+    </label>
+    <label>
+    <input value="2"  type="checkbox" name="state">Arunachal Pradesh
+    </label>
+    <label>
+    <input value="3"  type="checkbox" name="state">Assam
+    </label>
+    <label>
+    <input value="4" type="checkbox" name="state">Bihar
+    </label>
+    <label>
+    <input value="30 "  type="checkbox" name="state">Chandigarh
+    </label>
+    <label>
+    <input value="5"  type="checkbox" name="state">Chhattisgarh
+    </label>
+    <label>
+    <input value="31"  type="checkbox" name="state">Dadra 
+    </label>
+    <label>
+    <input value="32"  type="checkbox" name="state">Delhi>
+    </label>
+    <label>
+    <input value="6"  type="checkbox" name="state">Goa
+    </label>
+    <label>
+    <input value="7"  type="checkbox" name="state">Gujarat
+    </label>
+    <label>
+    <input value="8"  type="checkbox" name="state">Haryana
+    </label>l
+    <label>
+    <input value="9"  type="checkbox" name="state">Himachal Pradesh
+    </label>
+    <label>
+    <input value="33"  type="checkbox" name="state">Jammu and Kashmir
+    </label>       
+    <label>
+    <input value="10 "  type="checkbox" name="state">Jharkhand
+    </label>
+    <label>
+    <input value="11"   type="checkbox" name="state">Karnataka
+    </label>
+    <label>
+    <input value="12"  type="checkbox" name="state">Kerala
+    </label>
+    <label>
+    <input value="36"  type="checkbox" name="state">Ladakh
+    </label>
+    <label>
+    <input value="34"  type="checkbox" name="state">Lakshadweep
+    </label>
+      <label>
+    <input value="13"  type="checkbox" name="state">Madhya Pradesh
+    </label>
+      <label>
+    <input value="14"  type="checkbox" name="state">Maharashtra
+    </label>
+      <label>
+    <input value="15"  type="checkbox" name="state">Manipur
+    </label>
+      <label>
+    <input value="16"  type="checkbox" name="state">Meghalaya
+    </label>
+      <label>
+    <input value="17"  type="checkbox" name="state">Mizoram
+    </label>
+      <label>
+    <input value="18"  type="checkbox" name="state">Nagaland
+    </label>
+      <label>
+    <input value="19"  type="checkbox" name="state">Odisha
+    </label>
+      <label>
+    <input value="35"  type="checkbox" name="state">Puducherry
+    </label>
+      <label>
+    <input value="20"  type="checkbox" name="state">Punjab
+    </label>
+      <label>
+    <input value="21"  type="checkbox" name="state">Rajasthan
+    </label>
+      <label>
+    <input value="22"  type="checkbox" name="state">Sikkim
+    </label>
+      <label>
+    <input value="23"  type="checkbox" name="state">Tamil Nadu
+    </label>
+      <label> 
+    <input value="24"  type="checkbox" name="state">Telangana
+    </label>
+      <label>
+    <input value="25"  type="checkbox" name="state">Tripura>
+    </label>
+      <label>
+    <input value="26"  type="checkbox" name="state">Uttar Pradesh
+    </label>
+      <label>
+    <input value="27"  type="checkbox" name="state">Uttarakhand
+    </label>
+      <label>
+    <input value="28"  type="checkbox" name="state">West Bengal
+    </label>
+      
+  
+  </div>
 <br><br><br>
+  <div class="single-element-widget" style="padding-left:7rem; padding-right:4rem;">
+    <label for="subject"><h3>Subject:</h3></label>
+    <select name="subject" class="custom-select">
+      {% for subject in subjectList %}
+      <option value={{subject}}>{{subject}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <br><br><br><br>
+  <input type="submit" class="btn radius-btn">
+  </form>    
+<br><br>
 {% if avgMarks %}
-  Average Marks:{{avgMarks}}
+ <h2> Average Marks:{{avgMarks}}</h2>
 {% else %}
 {% endif %}
 
 {% else %}
 {% endif %}
+
 </div>
 </div>
 </div>
@@ -196,8 +326,20 @@
 </footer>
 </main>
 
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+
+<script>
+  $(document).ready(function(){
+      $('input:checkbox').click(function() {
+          $('input:checkbox').not(this).prop('checked', false);
+      });
+  });
+  </script>
 
 <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+<script src="{% static 'assets/js/scrollBar.js' %}"></script>
 
 <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
 <script src="{% static 'assets/js/popper.min.js' %}"></script>
